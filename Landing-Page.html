@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>charity: water — Clean Water is the Key to a Degree</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#" class="brand-logo" aria-label="charity water home">
+        <div class="logo-jerrycan" aria-hidden="true">
+          <div class="logo-jerrycan-handle"></div>
+        </div>
+        <span class="brand-name">charity: water</span>
+      </a>
+
+      <!-- Primary Navigation Links -->
+      <ul class="nav-menu">
+        <li><a href="#action" class="nav-link">Take Action</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#why-water" class="nav-link">Why Water?</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="#signin" class="nav-link">Sign In</a>
+        <div class="nav-divider" aria-hidden="true"></div>
+        <button type="button" class="btn-give" id="giveBtn">
+          Give
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-wrapper">
+    <section class="hero-stage" aria-labelledby="hero-heading">
+      
+      <!-- Left: Student Photo -->
+      <div class="hero-media">
+        <img 
+          src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80" 
+          alt="Smiling student holding a clean glass of water in a classroom"
+        >
+        <div class="hero-media-overlay" aria-hidden="true"></div>
+      </div>
+
+      <!-- Right: Content & Action -->
+      <div class="hero-content">
+        <h1 id="hero-heading" class="hero-title">
+          Access to <br>
+          <span class="text-emphasis">Clean Water</span> is <br>
+          the <span class="text-keyword">Key</span> to a <br>
+          <span class="text-emphasis">Degree</span>
+        </h1>
+
+        <div class="hero-callout">
+          <p class="hero-description">
+            No child should miss school to walk for water. We’re calling all college organizations to spread education access by donating their time not money!
+          </p>
+        </div>
+
+        <button type="button" class="btn-volunteer" id="volunteerBtn">
+          Become a Volunteer Today
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Interactive Button Logic -->
+  <script>
+    document.getElementById('volunteerBtn').addEventListener('click', () => {
+      alert('Thank you for stepping up! Redirecting to the volunteer registration form.');
+    });
+
+    document.getElementById('giveBtn').addEventListener('click', () => {
+      alert('Redirecting to the donation portal.');
+    });
+  </script>
+
+</body>
+</html>    
+/* ==========================================================================
+   Design Tokens & CSS Variables
+   ========================================================================== */
+:root {
+  --color-navy-dark: #0f2744;
+  --color-navy-card: #0d223c;
+  --color-yellow: #f4c838;
+  --color-yellow-hover: #e0b62b;
+  --color-water-blue: #7bb8db;
+  --color-cta-blue: #628fa5;
+  --color-cta-blue-hover: #50788d;
+  --color-text-dark: #121824;
+  --color-text-muted: #4b5563;
+  --color-text-cream: #fbf8ef;
+  --color-white: #ffffff;
+  --font-primary: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --transition-smooth: all 0.2s ease-in-out;
+  --radius-pill: 9999px;
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: #f3f4f6;
+  color: var(--color-text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, a {
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Top Navigation Bar
+   ========================================================================== */
+.site-header {
+  background: var(--color-white);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text-dark);
+}
+
+.logo-jerrycan {
+  width: 22px;
+  height: 28px;
+  background: var(--color-yellow);
+  border-radius: 3px;
+  position: relative;
+  border: 1.5px solid #27272a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-jerrycan::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 3px;
+  background: #27272a;
+  border-radius: 2px 2px 0 0;
+}
+
+.logo-jerrycan-handle {
+  width: 10px;
+  height: 14px;
+  border: 1.5px solid #27272a;
+  border-radius: 2px;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2.2rem;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--color-cta-blue);
+  outline: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-divider {
+  width: 1.5px;
+  height: 28px;
+  background-color: #d1d5db;
+}
+
+/* Give Button */
+.btn-give {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-yellow);
+  border: 1.5px solid #18181b;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #18181b;
+  transition: var(--transition-smooth);
+}
+
+.btn-give:hover {
+  background: var(--color-yellow-hover);
+  transform: translateY(-1px);
+}
+
+.btn-give:active {
+  transform: translateY(0);
+}
+
+.btn-give svg {
+  width: 16px;
+  height: 20px;
+  fill: var(--color-water-blue);
+  stroke: #18181b;
+  stroke-width: 1.2;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-wrapper {
+  background-color: var(--color-navy-dark);
+  padding: 3rem 1.5rem;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-stage {
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #1e3a5f;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Left Media Container */
+.hero-media {
+  position: relative;
+  min-height: 540px;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.hero-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(15, 39, 68, 0.05) 50%, rgba(15, 39, 68, 0.85) 100%);
+}
+
+/* Right Content Box */
+.hero-content {
+  background: rgba(15, 39, 68, 0.92);
+  padding: 3.5rem 3.5rem 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-white);
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-title .text-emphasis {
+  font-weight: 800;
+  color: var(--color-text-cream);
+}
+
+.hero-title .text-keyword {
+  font-weight: 800;
+  color: #fef08a;
+}
+
+/* Message Callout */
+.hero-callout {
+  background-color: var(--color-navy-card);
+  border-left: 3px solid var(--color-cta-blue);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2.25rem;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+  font-weight: 400;
+}
+
+/* Volunteer Button */
+.btn-volunteer {
+  align-self: flex-start;
+  background-color: var(--color-cta-blue);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-smooth);
+}
+
+.btn-volunteer:hover {
+  background-color: var(--color-cta-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.btn-volunteer:active {
+  transform: translateY(0);
+}
+
+.btn-volunteer:focus-visible,
+.btn-give:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 960px) {
+  .nav-menu {
+    gap: 1.2rem;
+  }
+
+  .hero-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-media {
+    min-height: 380px;
+  }
+
+  .hero-media-overlay {
+    background: linear-gradient(to bottom, rgba(15, 39, 68, 0.1) 40%, rgba(15, 39, 68, 0.95) 100%);
+  }
+
+  .hero-content {
+    padding: 2.5rem 2rem;
+  }
+
+  .btn-volunteer {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-menu,
+  .nav-divider {
+    display: none;
+  }
+  
+  .brand-name {
+    font-size: 1.2rem;
+  }
+}
+
