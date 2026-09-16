@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #e3e3e3;
+  --panel: #f3f3f2;
+  --ink: #0e2344;
+  --ink-soft: #1a3d65;
+  --navy: #0d2d52;
+  --navy-deep: #092949;
+  --blue: #a8dce7;
+  --blue-soft: #bddfe8;
+  --yellow: #f2d54b;
+  --white: #f7f7f7;
+  --shadow: rgba(13, 45, 82, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  font-family: 'Manrope', sans-serif;
+  color: var(--ink);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1280px, calc(100vw - 60px));
+  background: var(--panel);
+  border: 1px solid rgba(29, 39, 52, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 36px auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 110px;
+  padding: 0 34px 0 26px;
+  background: rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(14, 35, 68, 0.12);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+  color: var(--ink);
+}
+
+.brand-mark {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  transform: rotate(45deg);
+}
+
+.brand-mark::before,
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.brand-mark::before {
+  transform: translate(-4px, -4px) scale(0.6);
+}
+
+.brand-mark::after {
+  transform: translate(4px, 4px) scale(0.6);
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2vw, 2.3rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  font-style: italic;
+}
+
+.main-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2vw, 34px);
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.94rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.give-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 120px;
+  padding: 14px 18px;
+  border: none;
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: inset 0 0 0 1px rgba(14, 35, 68, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.give-btn:hover,
+.cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(14, 35, 68, 0.12);
+}
+
+.drop-icon {
+  position: relative;
+  display: inline-block;
+  width: 14px;
+  height: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 50% 50% 45% 45%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.2));
+}
+
+.drop-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  width: 2px;
+  height: 9px;
+  background: var(--ink);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.hero {
+  position: relative;
+  min-height: 700px;
+  padding: 0;
+  background:
+    linear-gradient(rgba(10, 27, 48, 0.3), rgba(10, 27, 48, 0.18)),
+    url('https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  border-top: 1px solid rgba(14, 35, 68, 0.06);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 30px 48px 36px 48px;
+}
+
+.hero h1 {
+  margin: 0;
+  width: min(100%, 630px);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(4rem, 6vw, 8rem);
+  line-height: 0.83;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
+}
+
+.hero h1 span {
+  display: inline-block;
+  font-weight: 600;
+}
+
+.hero-copy {
+  margin: 28px 0 26px;
+  width: min(100%, 560px);
+  padding: 18px 22px;
+  background: rgba(15, 59, 100, 0.7);
+  border-radius: 12px;
+  color: #ecf7fd;
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.5;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 390px;
+  min-height: 66px;
+  padding: 18px 28px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(154, 206, 226, 0.92);
+  color: var(--navy-deep);
+  font-size: clamp(1.1rem, 1.7vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15, 59, 100, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .page-shell {
+    width: min(100vw - 20px, 1280px);
+    margin: 20px auto;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 18px;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  .give-btn {
+    margin-bottom: 8px;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-content {
+    align-items: center;
+    padding: 24px 18px 30px;
+  }
+
+  .hero-copy {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-name {
+    font-size: 1.7rem;
+  }
+
+  .main-nav {
+    gap: 12px 18px;
+  }
+
+  .main-nav a {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+
+  .give-btn {
+    min-width: 100px;
+    padding: 12px 16px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero h1 {
+    width: 100%;
+    font-size: clamp(2.9rem, 12vw, 4.5rem);
+  }
+
+  .hero-copy {
+    width: 100%;
+    font-size: 0.96rem;
+    padding: 14px 16px;
+  }
+
+  .cta-btn {
+    min-width: 100%;
+    width: 100%;
+    min-height: 58px;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+}
